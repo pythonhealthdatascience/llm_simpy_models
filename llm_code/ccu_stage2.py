@@ -96,8 +96,8 @@ class CCU:
         )
 
     def lognormal_to_normal(self, mu, sigma):
-        zeta = np.log(mu ** 2 / np.sqrt(sigma ** 2 + mu ** 2))
-        sigma_norm = np.sqrt(np.log(sigma ** 2 / mu ** 2 + 1))
+        zeta = np.log(mu**2 / np.sqrt(sigma**2 + mu**2))
+        sigma_norm = np.sqrt(np.log(sigma**2 / mu**2 + 1))
         mu_norm = zeta
         return mu_norm, sigma_norm
 
@@ -338,10 +338,11 @@ class CCU:
 
         performance_measures = {
             "Total Cancelled Elective Operations": self.cancelled_operations,
-            "Mean Unplanned Admission Waiting Time (hours)": self.total_unplanned_waiting_time
-            / self.total_unplanned_admissions
-            if self.total_unplanned_admissions > 0
-            else 0,
+            "Mean Unplanned Admission Waiting Time (hours)": (
+                self.total_unplanned_waiting_time / self.total_unplanned_admissions
+                if self.total_unplanned_admissions > 0
+                else 0
+            ),
             "Bed Utilization": bed_utilization,
             "Bed Occupancy": bed_occupancy,
             "Patient Count": self.patient_id_counter,

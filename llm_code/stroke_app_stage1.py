@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from stroke_rehab_model_fix import (
+from stroke_model_stage1 import (
     Experiment, multiple_replications, combine_pdelay_results, 
     combine_occup_results, mean_results, prob_delay_plot, 
     occupancy_plot, summary_table

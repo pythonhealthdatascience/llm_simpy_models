@@ -37,7 +37,7 @@ For a full record of the generation of these models, please refer to: https://gi
 The project uses `conda` to manage dependencies. Navigate your terminal to the directory containing the code and run:
 
 ```
-conda env create -f environment.yml
+conda env create -f binder/environment.yml
 ```
 
 This will create a conda environment called `gen_simpy`. To activate:

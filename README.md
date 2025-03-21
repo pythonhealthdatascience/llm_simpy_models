@@ -40,11 +40,13 @@ The project uses `conda` to manage dependencies. Navigate your terminal to the d
 conda env create -f binder/environment.yml
 ```
 
-This will create a conda environment called `gen_simpy`. To activate:
+This will create a conda environment called `gen_simpy_apps`. To activate:
 
 ```
-conda activate gen_simpy
+conda activate gen_simpy_apps
 ```
+
+This environment is a simplified version of that from the [llm_simpy](https://github.com/pythonhealthdatascience/llm_simpy) repository, containing only the dependencies required for running the apps.
 
 ## 🖥️ Viewing the apps locally
 

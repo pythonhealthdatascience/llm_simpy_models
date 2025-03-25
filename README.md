@@ -11,7 +11,7 @@ It contains the final formatted code from each of the SimPy discrete-event simul
 
 The web applications are deployed as a single app on GitHub pages using `stlite`. This allows the app to run directly in a user's web browser without requiring any manual installations. It achieves this by using WebAssembly technology to run a serverless version of `streamlit` (i.e. `stlite`). The entire app, along with all its dependencies, are downloaded and installed within the browser at runtime using `pyodide` and `micropip`. There will be a short wait while the app is setup. Once the setup is complete, the app runs locally in the browser, meaning that no user data leaves the local machine. **Please note that `stlite` does not currently work in Mozilla Firefox**.
 
-**Link to the deployed app:** <!--TODO: Add once deployed (requires public repository) -->
+**Link to the deployed app:** https://pythonhealthdatascience.github.io/llm_simpy_models/
 
 **Code:** The final formatted code from each stage are stored in 📁`pages\`:
 

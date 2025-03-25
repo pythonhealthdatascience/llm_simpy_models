@@ -7,12 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## v1.0.1 - 2025-03-25
 
-Update author list and correct app home page.
+Update author list, add DOI, and correct app home page.
 
 ### Changed
 
 * Removed Nav from `README.md`, `CITATION.cff` and `Home.py`.
 * Correct `Home.py` (to describe deployment as stlite and GitHub pages, and not Streamlit Community Cloud).
+* Add DOI to `README.md`.
 
 ## v1.0.0 - 2025-03-25
 

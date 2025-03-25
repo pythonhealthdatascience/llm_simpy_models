@@ -12,14 +12,14 @@ st.markdown(
     """
 This application is complementary to:
 
-> Thomas Monks, Alison Harper, Amy Heather, and Navonil Mustafee. **Using Large
+> Thomas Monks, Alison Harper, and Amy Heather. **Using Large
 Language Models to support researchers reproduce and reuse unpublished health
 care discrete-event simulation computer models: a feasibility and pilot study
 in Python**. https://github.com/pythonhealthdatascience/llm_simpy.
 
 It deploys the streamlit applications generated using Perplexity as a single
-app on Streamlit Community Cloud.
-            
+app via stlite and GitHub pages.
+
 Use the sidebar to navigate to each app.
 """
 )

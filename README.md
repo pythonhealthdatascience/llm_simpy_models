@@ -39,6 +39,8 @@ For a full record of the generation of these models, please refer to: https://gi
 
 ## 🌐 Creating the environment
 
+### conda
+
 The project uses `conda` to manage dependencies. Navigate your terminal to the directory containing the code and run:
 
 ```
@@ -51,7 +53,53 @@ This will create a conda environment called `gen_simpy_apps`. To activate:
 conda activate gen_simpy_apps
 ```
 
-This environment is a simplified version of that from the [llm_simpy](https://github.com/pythonhealthdatascience/llm_simpy) repository, containing only the dependencies required for running the apps.
+This environment is a simplified version of that from the [llm_simpy](https://github.com/pythonhealthdatascience/llm_simpy) repository, containing only the dependencies required for running the models and apps.
+
+### venv
+
+Another option is to use `venv`. You can build the environment by running:
+
+```
+python -m venv venv
+```
+
+Then install the packages using:
+
+```
+pip install -r requirements.txt
+```
+
+`venv` cannot control which python version is used, it will just use one on system. You can check what this is by running:
+
+```
+venv/bin/python --version
+```
+
+You can find the version of python used for the models and app in the `binder/environment.yaml` file.
+
+### Docker
+
+Alternatively, a docker environment has been provided.
+
+You can build the image by running:
+
+```
+docker build -f binder/Dockerfile -t gen_simpy_apps .
+```
+
+Another option is to pull the image from the GitHub Container Registry:
+
+```
+docker pull ghcr.io/pythonhealthdatascience/llm_simpy_models:latest
+```
+
+Once you have the build image, you can then run the container:
+
+```
+docker run -p 8501:8501 gen_simpy_apps
+```
+
+Open your browser to <http://localhost:8501/> to view the app.
 
 <br>
 

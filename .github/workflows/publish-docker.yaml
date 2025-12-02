@@ -1,0 +1,61 @@
+name: Publish docker on GHCR
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      force_docker_build:
+        description: 'Force Docker build (skip change detection)'
+        required: true
+        type: boolean
+        default: false
+      skip_docker_build:
+        description: 'Skip Docker build (use last built image)'
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  publish-docker:
+    name: Publish docker
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check if Docker build needed
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            docker:
+              - 'binder/Dockerfile'
+              - 'binder/environment.yml'
+
+      - name: Login to GitHub Container Registry
+        if: >
+          (!inputs.skip_docker_build) &&
+          (inputs.force_docker_build || steps.changes.outputs.docker == 'true')
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the Docker image
+        if: >
+          (!inputs.skip_docker_build) &&
+          (inputs.force_docker_build || steps.changes.outputs.docker == 'true')
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: binder/Dockerfile
+          tags: |
+            ghcr.io/pythonhealthdatascience/llm_simpy_models:latest
+          push: true
+  

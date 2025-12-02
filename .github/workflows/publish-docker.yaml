@@ -35,7 +35,7 @@ jobs:
           filters: |
             docker:
               - 'binder/Dockerfile'
-              - 'binder/environment.yaml'
+              - 'binder/environment.yml'
 
       - name: Login to GitHub Container Registry
         if: >
@@ -54,6 +54,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          file: binder/Dockerfile
           tags: |
             ghcr.io/pythonhealthdatascience/llm_simpy_models:latest
           push: true

@@ -81,22 +81,40 @@ You can find the version of python used for the models and app in the `binder/en
 
 Alternatively, a docker environment has been provided.
 
+#### Build docker image locally
+
 You can build the image by running:
 
 ```
 docker build -f binder/Dockerfile -t gen_simpy_apps .
 ```
 
-Another option is to pull the image from the GitHub Container Registry:
+And run the container:
+
+```
+docker run -p 8501:8501 gen_simpy_apps
+```
+
+Open your browser to <http://localhost:8501/> to view the app.
+
+#### Pull docker image from container registry
+
+Another option is to pull the image from the GitHub Container Registry (GHCR). As explained in the [GHCR documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry), you'll need to create an access token to install from GHCR (even when it is a public image). You can create a token by going to your profile Settings > Developer Settings > Personal access tokens > Tokens (classic) > Generate new token. You can then login:
+
+```
+docker login ghcr.io -u username -p accesstoken
+```
+
+And should be able to pull the image:
 
 ```
 docker pull ghcr.io/pythonhealthdatascience/llm_simpy_models:latest
 ```
 
-Once you have the build image, you can then run the container:
+You can then run the container:
 
 ```
-docker run -p 8501:8501 gen_simpy_apps
+docker run -p 8501:8501 ghcr.io/pythonhealthdatascience/llm_simpy_models
 ```
 
 Open your browser to <http://localhost:8501/> to view the app.
